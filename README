@@ -1,0 +1,51 @@
+-------------------------------------------------------------------------------
+
+justin@justin-ThinkPad-X240:~/work/echoserver$ telnet localhost 8080
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+hello
+You sent: "hello\r\n"
+goodbye
+You sent: "goodbye\r\n"
+^]
+
+telnet> quit
+Connection closed.
+justin@justin-ThinkPad-X240:~/work/echoserver$ 
+
+-------------------------------------------------------------------------------
+
+justin@justin-ThinkPad-X240:~/work/echoserver$ make run
+ DEPEND echoserver.d
+ ERLC   echo_server.erl echoserver_sup.erl
+ APP    echoserver
+ GEN    distclean-relx-rel
+===> Starting relx build process ...
+===> Resolving OTP Applications from directories:
+          /home/justin/work/echoserver/ebin
+          /usr/lib/erlang/lib
+          /home/justin/work/echoserver/apps
+          /home/justin/work/echoserver/deps
+===> Missing beam file elf_format <<"/usr/lib/erlang/lib/hipe-3.12/ebin/elf_format.beam">>
+===> Resolved echoserver_release-1
+===> Including Erts from /usr/lib/erlang
+===> release successfully created!
+Exec: /home/justin/work/echoserver/_rel/echoserver_release/erts-7.0/bin/erlexec -boot /home/justin/work/echoserver/_rel/echoserver_release/releases/1/echoserver_release -boot_var ERTS_LIB_DIR /home/justin/work/echoserver/_rel/echoserver_release/erts-7.0/../lib -config /home/justin/work/echoserver/_rel/echoserver_release/releases/1/sys.config -args_file /home/justin/work/echoserver/_rel/echoserver_release/releases/1/vm.args -- console
+Root: /home/justin/work/echoserver/_rel/echoserver_release
+/home/justin/work/echoserver/_rel/echoserver_release
+heart_beat_kill_pid = 25725
+Erlang/OTP 18 [erts-7.0] [source] [64-bit] [smp:4:4] [async-threads:10] [kernel-poll:false]
+
+server <0.42.0> started
+server <0.43.0> started
+server <0.44.0> started
+server <0.45.0> started
+server <0.46.0> started
+Eshell V7.0  (abort with ^G)
+(echoserver@127.0.0.1)1> #Port<0.313> accepted
+server <0.51.0> started
+Received "hello\r\n" from #Port<0.313>
+Received "goodbye\r\n" from #Port<0.313>
+#Port<0.313> closed
+<0.42.0> terminated
