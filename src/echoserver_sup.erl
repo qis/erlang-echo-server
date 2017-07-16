@@ -20,11 +20,12 @@ spawn_child() ->
 init([Port]) ->
     {ok, LSock} = gen_tcp:listen(Port, [{active, false}]),
     WorkerSpec={echo_server, 
-		{echo_server, start_link, [LSock]},
-		temporary, 
-		brutal_kill, 
-		worker, 
-		[echo_server]},
+      {echo_server, start_link, [LSock]},
+      temporary, 
+      brutal_kill, 
+      worker, 
+      [echo_server]
+    },
     Procs = [WorkerSpec],
     spawn(fun() -> echo_server:initialise(?N_PROCS) end), %% NB needs to be in a separate process
     {ok, {{simple_one_for_one, 1, 5}, Procs}}. %% NB simple_one_for_one
